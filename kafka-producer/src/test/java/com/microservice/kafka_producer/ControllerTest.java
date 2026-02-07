@@ -3,6 +3,8 @@ package com.microservice.kafka_producer;
 import com.microservice.kafka_producer.spring_test.Controller;
 import com.microservice.kafka_producer.spring_test.Service;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.RepetitionInfo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -62,4 +64,11 @@ public class ControllerTest {
         verify(service, times(1)).printNumber(value);
     }
 
+    @RepeatedTest(value = 5)
+    public void checkRepeatedTest(RepetitionInfo repetitionInfo) {
+        service.printNumber(repetitionInfo.getCurrentRepetition());
+//        System.out.println("info :"+ );
+        verify(service, times(1))
+                .printNumber(repetitionInfo.getCurrentRepetition());
+    }
 }
