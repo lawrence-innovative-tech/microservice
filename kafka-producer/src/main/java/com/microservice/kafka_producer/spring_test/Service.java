@@ -6,6 +6,7 @@ public class Service {
     public String getName() {
         System.out.println("test service name");
         return "actual test message";
+//        throw new RuntimeException("test service name");
     }
 
     public void printNumber(int number) {

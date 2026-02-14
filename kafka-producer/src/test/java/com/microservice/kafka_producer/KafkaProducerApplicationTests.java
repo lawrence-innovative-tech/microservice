@@ -8,6 +8,7 @@ class KafkaProducerApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
