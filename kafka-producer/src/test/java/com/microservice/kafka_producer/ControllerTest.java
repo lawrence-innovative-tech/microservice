@@ -2,8 +2,13 @@ package com.microservice.kafka_producer;
 
 import com.microservice.kafka_producer.spring_test.Controller;
 import com.microservice.kafka_producer.spring_test.Service;
+
 import lombok.Getter;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.RepetitionInfo;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -30,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-//@SpringBootTest
+@SpringBootTest
 //@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 //@WebMvcTest
 @ContextConfiguration(classes = KafkaProducerApplicationTests.class)
@@ -201,4 +206,11 @@ public class ControllerTest {
         System.out.println(emp1.get());
     }
 
+    @RepeatedTest(value = 5)
+    public void checkRepeatedTest(RepetitionInfo repetitionInfo) {
+        service.printNumber(repetitionInfo.getCurrentRepetition());
+//        System.out.println("info :"+ );
+        verify(service, times(1))
+                .printNumber(repetitionInfo.getCurrentRepetition());
+    }
 }
