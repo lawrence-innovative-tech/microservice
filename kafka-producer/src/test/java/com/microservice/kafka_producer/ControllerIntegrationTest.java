@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @ConfigurationPropertiesScan(value = "classpath:application.yaml")
-@SpringBootTest(classes = KafkaProducerApplication.class)
+@SpringBootTest(classes = KafkaProducerApplicationTests.class)
 @AutoConfigureMockMvc
 public class ControllerIntegrationTest {
 

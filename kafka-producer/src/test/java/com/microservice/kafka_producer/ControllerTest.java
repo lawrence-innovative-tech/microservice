@@ -35,10 +35,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest
+@SpringBootTest(classes = KafkaProducerApplicationTests.class)
 //@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 //@WebMvcTest
-@ContextConfiguration(classes = KafkaProducerApplicationTests.class)
+@ContextConfiguration(classes = KafkaProducerApplication.class)
 public class ControllerTest {
 
     @Mock
@@ -66,7 +66,7 @@ public class ControllerTest {
     @BeforeEach
     public void setUp() {
 //        service = mock();
-//        controller = new Controller(serviceMock);
+        controller = new Controller(service);
         System.out.println("controller :"+controller.hashCode());
 //        ReflectionTestUtils.setField(service, "host", service);
     }
@@ -77,7 +77,7 @@ public class ControllerTest {
 
         when(service.getName()).thenReturn("Ezekiel");
 
-//        assertEquals("Ezekiel", controller1.getName());
+        assertEquals("actual test message", controller1.getName());
 
         assertEquals(controller.getName(),"Ezekiel", () -> {
             return "Test has failed through getName()";
