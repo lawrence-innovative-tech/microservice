@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest(classes = KafkaProducerApplication.class)
+//@SpringBootTest(classes = KafkaProducerApplication.class)
 public class InjectMockTest {
 
     @Mock
