@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @ConfigurationPropertiesScan(value = "classpath:application.yaml")
-@SpringBootTest(classes = KafkaProducerApplicationTests.class)
+@SpringBootTest(classes = KafkaProducerApplication.class)
 @AutoConfigureMockMvc
 public class ControllerIntegrationTest {
 
@@ -43,8 +43,8 @@ public class ControllerIntegrationTest {
 
         MvcResult mvcResult = mockMvc.perform(get("/getname"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_PLAIN)
-                        ).andExpect(MockMvcResultMatchers.content().string("actual test message"))
+                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_PLAIN))
+                .andExpect(MockMvcResultMatchers.content().string("actual test message"))
                 .andReturn();
         mvcResult.getRequest().getCookies();
     }
