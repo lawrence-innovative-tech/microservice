@@ -10,6 +10,9 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,7 +22,7 @@ public class BasicTest {
     @Spy
     private Basic basic;
 
-    @RepeatedTest(2)
+    @RepeatedTest(1)
     public void basicTest() {
 //        int[] randomNumber = generateRandomArray(10, 5, 50);
         int[] randomNumber = {29, 46, 28, 43, 31, 9, 23, 31, 31, 28 };
@@ -33,6 +36,13 @@ public class BasicTest {
         basic.removeDuplicate(randomNumber);
         assertArrayEquals(result, basic.getDuplicateElements(randomNumber), "There no excepted error");
         assertEquals(10, basic.findTotalCountElements(randomNumber));
+        String preFixSubfix = basic.StringJoinPrefix(IntStream.of(randomNumber)
+                .boxed().map(String::valueOf).collect(Collectors.toList()), "test");
+        System.out.println("prefix subfix: " + preFixSubfix);
+
+        List<String> stringList = Arrays.asList("apple", "kiwi", "banana", "fig", "grape", "watermelon", "pear");
+
+
     }
 
     private int[] generateRandomArray(int size, int min, int max) {
