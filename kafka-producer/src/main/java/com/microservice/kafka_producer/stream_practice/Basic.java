@@ -3,6 +3,7 @@ package com.microservice.kafka_producer.stream_practice;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Basic {
 
@@ -57,23 +58,53 @@ public class Basic {
     }
 
     public void orderLengthBasedStr(List<String> strList) {
-        System.out.println("orderLengthBasedStr: ");
+        System.out.println("orderLengthBasedStr ");
 //        List<String> sortedList = strList.stream().sorted(Comparator.comparing(String::length).reversed())
 //                .map(str ->
 //                }).toList();
-        List<String> list = List.of("flower", "flood", "flood");
 
-        int minLen = list.stream()
+
+        int minLen = strList.stream()
                 .mapToInt(String::length)
                 .min()
                 .orElse(0);
 
         String prefix = java.util.stream.IntStream.range(0, minLen)
-                .takeWhile(i -> list.stream()
+                .takeWhile(i -> strList.stream()
                         .map(s -> s.charAt(i))
                         .distinct()
                         .count() == 1)
-                .mapToObj(i -> String.valueOf(list.get(0).charAt(i)))
+                .mapToObj(i -> String.valueOf(strList.get(0).charAt(i)))
                 .collect(java.util.stream.Collectors.joining());
+        System.out.println("prefix: " + prefix);
+
+
+        String prefix1 = strList.stream()
+                .reduce((a, b) -> a.substring(0, IntStream.range(0, Math.min(a.length(), b.length()))
+                        .filter(i -> a.charAt(i) != b.charAt(i))
+                        .findFirst()
+                        .orElse(Math.min(a.length(), b.length()))))
+                .orElse("");
+0        System.out.println("prefix1: " + prefix1);
+
+        List<String> mutableStrList = new ArrayList<>(strList);
+        List<String> reversedMumtaleList = mutableStrList.stream().map(str -> {
+            StringBuilder sb = new StringBuilder(str);
+            return sb.reverse().toString();
+        }).sorted().toList();//.sorted(Comparator.reverseOrder()).toList();
+
+        System.out.println(reversedMumtaleList);
+
+        String first = reversedMumtaleList.get(0);
+        String last = reversedMumtaleList.get(reversedMumtaleList.size() - 1);
+        int len = Math.min(first.length(), last.length()), i = 0;
+HashMap
+        while (i < len && first.charAt(i) == last.charAt(i)) {
+            i++;
+        }
+        System.out.println("common longest prefix : "+ new StringBuilder(first.substring(0, i)).reverse().toString());
+
     }
+
+//    public void
 }

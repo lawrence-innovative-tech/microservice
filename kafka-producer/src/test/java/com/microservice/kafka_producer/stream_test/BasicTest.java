@@ -11,6 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Spliterator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -23,15 +24,15 @@ public class BasicTest {
     private Basic basic;
 
     @RepeatedTest(1)
-    public void basicTest() {
+        public void basicTest() {
 //        int[] randomNumber = generateRandomArray(10, 5, 50);
-        int[] randomNumber = {29, 46, 28, 43, 31, 9, 23, 31, 31, 28 };
-        int[] result = {28, 31};
-        for (int i: randomNumber) {
-            System.out.print( i + " ");
-        }
-        System.out.println();
-        basic.findEvenNumbers(randomNumber);
+            int[] randomNumber = {29, 46, 28, 43, 31, 9, 23, 31, 31, 28 };
+            int[] result = {28, 31};
+            for (int i: randomNumber) {
+                System.out.print( i + " ");
+            }
+            System.out.println();
+            basic.findEvenNumbers(randomNumber);
         basic.numberStartWith1(randomNumber);
         basic.removeDuplicate(randomNumber);
         assertArrayEquals(result, basic.getDuplicateElements(randomNumber), "There no excepted error");
@@ -41,7 +42,10 @@ public class BasicTest {
         System.out.println("prefix subfix: " + preFixSubfix);
 
         List<String> stringList = Arrays.asList("apple", "kiwi", "banana", "fig", "grape", "watermelon", "pear");
-
+//        List<String> list = List.of("preach", "prefix", "prevent", "preview", "preveen", "prem");
+        List<String> list = List.of("native", "innovative", "incentive", "inactive", "live");  //
+//        List<String> list = List.of("flower", "flood", "flood");
+        basic.orderLengthBasedStr(list);
 
     }
 
