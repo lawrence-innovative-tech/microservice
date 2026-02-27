@@ -85,7 +85,7 @@ public class Basic {
                         .findFirst()
                         .orElse(Math.min(a.length(), b.length()))))
                 .orElse("");
-0        System.out.println("prefix1: " + prefix1);
+        System.out.println("prefix1: " + prefix1);
 
         List<String> mutableStrList = new ArrayList<>(strList);
         List<String> reversedMumtaleList = mutableStrList.stream().map(str -> {
@@ -98,7 +98,7 @@ public class Basic {
         String first = reversedMumtaleList.get(0);
         String last = reversedMumtaleList.get(reversedMumtaleList.size() - 1);
         int len = Math.min(first.length(), last.length()), i = 0;
-HashMap
+
         while (i < len && first.charAt(i) == last.charAt(i)) {
             i++;
         }
