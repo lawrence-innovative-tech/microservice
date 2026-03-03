@@ -37,8 +37,8 @@ public class FilterSkills {
             List<String> skillList = entry.getValue();
             System.out.println(STR."Name: \{skillName}, List: \{skillList}");
         }
-Throwable
-        //String string = SQL."Select * from identity_cache where id = \{skillsListDepartmentWise.keySet().iterator().next()}";
+
+        String string = STR."Select * from identity_cache where id = \{skillsListDepartmentWise.keySet().iterator().next()}";
         return skillsListDepartmentWise;
 
     }

@@ -2,6 +2,7 @@ package com.microservice.kafka_producer.stream_test;
 
 import com.microservice.kafka_producer.stream_practice.Basic;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,6 +10,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Spliterator;
@@ -48,6 +50,17 @@ public class BasicTest {
         basic.orderLengthBasedStr(list);
 
     }
+
+    @Test
+    public void testForLoopConcurrentModification() {
+
+        List<String> soureList = new ArrayList<>(List.of("Alice", "Bob", "Charlie"));
+
+        for (String s : soureList) {
+            soureList.remove(s);
+        }
+    }
+
 
     private int[] generateRandomArray(int size, int min, int max) {
         int[] array = new int[size];
