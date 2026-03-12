@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Spliterator;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -27,6 +28,8 @@ public class BasicTest {
 
     @RepeatedTest(1)
         public void basicTest() {
+
+        AtomicInteger inte;
 //        int[] randomNumber = generateRandomArray(10, 5, 50);
             int[] randomNumber = {29, 46, 28, 43, 31, 9, 23, 31, 31, 28 };
             int[] result = {28, 31};
@@ -42,9 +45,14 @@ public class BasicTest {
         String preFixSubfix = basic.StringJoinPrefix(IntStream.of(randomNumber)
                 .boxed().map(String::valueOf).collect(Collectors.toList()), "test");
         System.out.println("prefix subfix: " + preFixSubfix);
+        assertEquals(28, basic.secondLargestNumber(result));
+//        assertEquals();
+        basic.mergeTwoArraysWithSorted(randomNumber, result);
 
         List<String> stringList = Arrays.asList("apple", "kiwi", "banana", "fig", "grape", "watermelon", "pear");
-//        List<String> list = List.of("preach", "prefix", "prevent", "preview", "preveen", "prem");
+        List<String> numbrtAndStringList = Arrays.asList("9apple", "kiwi", "2banana", "fig", "8grape", "watermelon", "pear");
+        basic.findStringStartWithNumber(numbrtAndStringList);
+        //        List<String> list = List.of("preach", "prefix", "prevent", "preview", "preveen", "prem");
         List<String> list = List.of("native", "innovative", "incentive", "inactive", "live");  //
 //        List<String> list = List.of("flower", "flood", "flood");
         basic.orderLengthBasedStr(list);

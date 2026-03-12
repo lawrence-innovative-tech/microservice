@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Basic {
 
@@ -46,6 +47,13 @@ public class Basic {
     private IntSummaryStatistics findSumAndAverage(int[] numbers) {
         System.out.println("Sum and average elements: ");
         return Arrays.stream(numbers).summaryStatistics();
+    }
+
+    public int secondLargestNumber(int[] numbers) {
+        return Arrays.stream(numbers)
+                .boxed()
+                .sorted(Comparator.reverseOrder())
+                .skip(1).findFirst().orElse(0);
     }
 
     public String StringJoinPrefix(List<String> strList, String prefix) {
@@ -106,5 +114,19 @@ public class Basic {
 
     }
 
-//    public void
+    public void mergeTwoArraysWithSorted(int[] arr1, int[] arr2) {
+        System.out.println("String concat : ");
+        IntStream.concat(Arrays.stream(arr1), Arrays.stream(arr2))
+                .distinct()
+                .sorted()
+                .forEachOrdered(ele -> System.out.print(ele + "-"));
+        System.out.println();
+//                .toArray();
+    }
+
+    public void findStringStartWithNumber(List<String> words){
+        System.out.println("String start with number ");
+        words.stream().filter(str -> str.charAt(0) <= '9' && str.charAt(0) >= '0'
+        ).forEach(str -> System.out.print(str +" "));
+    }
 }
