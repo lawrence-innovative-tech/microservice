@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -30,5 +31,12 @@ public class IntermediateStream {
         return words.chars().mapToObj(c -> (char) c).toList()
                 .stream().collect(Collectors.groupingBy(e -> e, LinkedHashMap::new, Collectors.counting()))
                 .entrySet().stream().filter(ele -> ele.getValue() != 1).map(Map.Entry::getKey).findFirst().orElse(null);
+    }
+
+    public Character findFirstNonRepeatedChar(String words) {
+        return words.chars().mapToObj(ch -> (char) ch).toList()
+                .stream().collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream().filter(ele -> ele.getValue() == 1)
+                .map(Map.Entry::getKey).findFirst().orElse(null);
     }
 }

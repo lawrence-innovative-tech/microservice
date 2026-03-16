@@ -1,4 +1,4 @@
-package com.microservice.kafka_producer.stream_test.intermediate;
+ package com.microservice.kafka_producer.stream_test.intermediate;
 
 
 import com.microservice.kafka_producer.stream_practice.*;
@@ -39,7 +39,8 @@ public final class IntermediateStreamClazzTest extends SealClazzIntermediateStea
                 'p', 4L,'r', 3L,'w', 2L);
 
         assertThat(answerMap,  is(intermediateStream.findFrequencyElements(stringList)));
-        assertThat('p', is(intermediateStream.findFirstRepeatedChar(stringList.getFirst())));
+        assertThat('p', is(intermediateStream.findFirstRepeatedChar(stringList.get(0))));
+
 
 //        assertThat(answerMap,  is(intermediateStream.findFrequencyElement(stringList.getFirst())));
 
