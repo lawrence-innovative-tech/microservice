@@ -60,6 +60,14 @@ public final class IntermediateStreamClazzTest extends SealClazzIntermediateStea
 
         List<DepartmentRecord> departmentsList = getDepartments(1);
         assertThat(actualResult, is(filterSkills.getSkillsDepartmentWise(departmentsList)));
+
+//        For department wise average salary
+        List<DepartmentRecord> department1 = new ArrayList<>(getDepartments(1));
+        List<DepartmentRecord> department2 = getDepartments(2);
+        department1.addAll(department2);
+        filterSkills.getDepartmentWiseAvg(department1).entrySet().forEach(System.out::println);
+        System.out.println(STR."Highest salaries department wise");
+        filterSkills.getHighestSalaryDepartmentWise(department1).entrySet().forEach(System.out::println);
     }
 
     private static List<DepartmentRecord> getDepartments(int exampleType) {

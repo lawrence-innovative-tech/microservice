@@ -57,6 +57,14 @@ public class Basic {
 //        return strList.stream().collect(Collectors.joining("-", prefix, "rest" ));
     }
 
+    public void mergeTwoArraysDistinctAndSorted(int[] firstArray, int[] secondArray) {
+        System.out.println("MergeTwoArraysDistinctAndSorted: ");
+        IntStream.concat(Arrays.stream(firstArray), Arrays.stream(secondArray))
+                .distinct()
+                .sorted()
+                .forEachOrdered(value -> System.out.print(STR."\{value} "));
+    }
+
     public void orderLengthBasedStr(List<String> strList) {
         System.out.println("orderLengthBasedStr ");
 //        List<String> sortedList = strList.stream().sorted(Comparator.comparing(String::length).reversed())

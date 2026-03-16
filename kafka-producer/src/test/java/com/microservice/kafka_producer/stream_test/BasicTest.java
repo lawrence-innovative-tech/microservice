@@ -9,6 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +18,8 @@ import java.util.Spliterator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -27,11 +30,16 @@ public class BasicTest {
 
     @RepeatedTest(1)
         public void basicTest() {
+        String s = "Java";
+        String s1 = "Java";
+        String s2 = new String("Java");
+        assertThat(s.hashCode(), is(s1.hashCode()));
+        assertThat(s.hashCode(), is(s2.hashCode()));
 //        int[] randomNumber = generateRandomArray(10, 5, 50);
             int[] randomNumber = {29, 46, 28, 43, 31, 9, 23, 31, 31, 28 };
             int[] result = {28, 31};
             for (int i: randomNumber) {
-                System.out.print( i + " ");
+                System.out.print(STR."\{i} ");
             }
             System.out.println();
             basic.findEvenNumbers(randomNumber);
@@ -41,14 +49,14 @@ public class BasicTest {
         assertEquals(10, basic.findTotalCountElements(randomNumber));
         String preFixSubfix = basic.StringJoinPrefix(IntStream.of(randomNumber)
                 .boxed().map(String::valueOf).collect(Collectors.toList()), "test");
-        System.out.println("prefix subfix: " + preFixSubfix);
+        System.out.println(STR."prefix subfix: \{preFixSubfix}");
 
         List<String> stringList = Arrays.asList("apple", "kiwi", "banana", "fig", "grape", "watermelon", "pear");
 //        List<String> list = List.of("preach", "prefix", "prevent", "preview", "preveen", "prem");
         List<String> list = List.of("native", "innovative", "incentive", "inactive", "live");  //
 //        List<String> list = List.of("flower", "flood", "flood");
         basic.orderLengthBasedStr(list);
-
+        basic.mergeTwoArraysDistinctAndSorted(randomNumber, result);
     }
 
     @Test

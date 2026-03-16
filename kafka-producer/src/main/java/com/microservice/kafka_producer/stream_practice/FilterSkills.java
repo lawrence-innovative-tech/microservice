@@ -18,6 +18,26 @@ public class FilterSkills {
                 .distinct().sorted().toList();
     }
 
+    public Map<String, Double> getDepartmentWiseAvg(List<DepartmentRecord> skills) {
+         return skills.stream()
+                .collect(Collectors.toMap(DepartmentRecord::name,
+                        dept -> dept.employees().stream().collect(Collectors.averagingDouble(EmplyeeRecord::salary))))
+                 .entrySet().stream()
+                 .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+
+    }
+
+    public Map<String, List<EmplyeeRecord>> getHighestSalaryDepartmentWise(List<DepartmentRecord> skills) {
+        return skills.stream().collect(Collectors.toMap(DepartmentRecord::name,
+                dept -> dept.employees().stream().sorted(Comparator.comparing(EmplyeeRecord::salary).reversed())
+                        .limit(2).toList(), (e1, e2) -> e1, LinkedHashMap::new));
+    }
+
+    private Double filterSalary(EmplyeeRecord emp){
+        return emp.salary();
+    }
+
     public Map<String, List<String>> getSkillsDepartmentWise(List<DepartmentRecord> skills) {
 
         Map<String, List<String>> skillsListDepartmentWise = skills.stream()
