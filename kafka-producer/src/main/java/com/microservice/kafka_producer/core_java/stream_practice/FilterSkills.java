@@ -1,11 +1,6 @@
-package com.microservice.kafka_producer.stream_practice;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.experimental.StandardException;
+package com.microservice.kafka_producer.core_java.stream_practice;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FilterSkills {

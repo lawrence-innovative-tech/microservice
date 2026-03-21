@@ -1,23 +1,16 @@
  package com.microservice.kafka_producer.stream_test.intermediate;
 
 
+import com.microservice.kafka_producer.core_java.stream_practice.DepartmentRecord;
+import com.microservice.kafka_producer.core_java.stream_practice.EmplyeeRecord;
+import com.microservice.kafka_producer.core_java.stream_practice.FilterSkills;
+import com.microservice.kafka_producer.core_java.stream_practice.IntermediateStream;
 import com.microservice.kafka_producer.stream_practice.*;
-import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
-import org.hamcrest.Matcher;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledIf;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.mockito.CheckReturnValue;
 import org.mockito.Spy;
-import org.springframework.util.CollectionUtils;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.*;
-import java.lang.Record;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;

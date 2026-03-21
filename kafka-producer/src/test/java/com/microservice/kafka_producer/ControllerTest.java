@@ -1,7 +1,7 @@
 package com.microservice.kafka_producer;
 
-import com.microservice.kafka_producer.spring_test.Controller;
-import com.microservice.kafka_producer.spring_test.Service;
+import com.microservice.kafka_producer.core_java.spring_test.Controller;
+import com.microservice.kafka_producer.core_java.spring_test.Service;
 
 import lombok.Getter;
 import org.junit.jupiter.api.*;
@@ -17,16 +17,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.*;
 import java.util.stream.Stream;

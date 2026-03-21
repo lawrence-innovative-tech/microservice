@@ -1,4 +1,4 @@
-package com.microservice.kafka_producer.stream_practice;
+package com.microservice.kafka_producer.core_java.stream_practice;
 
 import java.util.List;
 

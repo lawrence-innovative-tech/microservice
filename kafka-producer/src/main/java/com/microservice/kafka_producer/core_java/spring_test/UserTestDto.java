@@ -1,4 +1,4 @@
-package com.microservice.kafka_producer.spring_test;
+package com.microservice.kafka_producer.core_java.spring_test;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

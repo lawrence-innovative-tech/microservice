@@ -1,10 +1,9 @@
 package com.microservice.kafka_producer;
 
-import com.microservice.kafka_producer.spring_test.Controller;
-import com.microservice.kafka_producer.spring_test.Service;
-import com.microservice.kafka_producer.spring_test.java_concept.EqualsAndHashcode;
+import com.microservice.kafka_producer.core_java.spring_test.Controller;
+import com.microservice.kafka_producer.core_java.spring_test.Service;
+import com.microservice.kafka_producer.core_java.spring_test.java_concept.EqualsAndHashcode;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,11 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.util.HashSet;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

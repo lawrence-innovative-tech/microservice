@@ -1,16 +1,12 @@
-package com.microservice.kafka_producer.spring_test;
+package com.microservice.kafka_producer.core_java.spring_test;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.lang.reflect.Field;
 import java.util.Map;
 
 @RestController
